@@ -1,0 +1,68 @@
+{% macro pager_funct2(prefix,suffix,pager) -%}
+{%set header=3%}
+{%set footer=3%}
+{%set bar=2%}
+{%set pagecount=pager.pagecount%}
+{%set pageindex=pager.pageindex%}
+
+<ul class="pagination">
+  <li><a href="https://ifconfiger.com/page/Pagination-for-Jinja2">«</a></li>
+  {#append first 3 items to the pagination#}
+  {%for index in range(1,header+1)%}
+    {%if index < pageindex-bar%}
+      <li><a href="https://ifconfiger.com/page/{{prefix}}{{index}}{{suffix}}">{{index}}</a></li>
+    {%endif%}
+  {%endfor%}
+ 
+  {#append ... to pagination#}
+  {%if pageindex>header+bar+1%}
+  <li><span>....</span></li>
+  {%endif%}
+   
+  {#append two items right before pageindex#}
+  {%for index in range(pageindex-bar,pageindex)%}
+    {%if index>=1%}
+    <li><a href="https://ifconfiger.com/page/{{prefix}}{{index}}{{suffix}}">{{index}}</a></li>
+    {%endif%}
+  {%endfor%}
+ 
+  {#item for pageindex#}
+  <li class="active"><span>{{pageindex}}</span></li>
+ 
+  {#append two more items right after pageindex#}
+  {%for index in range(pageindex+1,pageindex+bar+1)%}
+    {%if index <= pagecount%}
+    <li><a href="https://ifconfiger.com/page/{{prefix}}{{index}}{{suffix}}">{{index}}</a></li>
+    {%endif%}
+  {%endfor%}
+ 
+  {#append ... to pagination#}
+  {%if pageindex < pagecount-footer-bar%}
+  <li><span>....</span></li>
+  {%endif%}
+   
+  {#append last 3 items to the pagination#}
+  {%for index in range(pagecount-footer+1,pagecount+1)%}
+    {%if index > pageindex+bar %}
+      <li><a href="https://ifconfiger.com/page/{{prefix}}{{index}}{{suffix}}">{{index}}</a></li>
+    {%endif%}
+  {%endfor%}
+  <li><a href="https://ifconfiger.com/page/Pagination-for-Jinja2">»</a></li>
+  <li><span>Go to</span></li>
+  <li><input type="text" style="width:40px;text-align:center;position:relative;float:left;padding:6px 12px;border:1px solid #ccc;height:34px;margin-left:-1px" class="goto_pagination" style="inline-block"/></li><li><span>Page</span></li>
+</ul>
+<script type="text/javascript">
+    $(".goto_pagination").keypress(function(event){
+        /*return*/
+        if(event.which == 13){
+            var re_num = /^\s*[1-9]\d*\s*$/;
+            if(re_num.test($(this).val())){
+                location.href="https://ifconfiger.com/page/{{prefix|safe}}"+$(this).val().trim()+"{{suffix|safe}}";
+            }
+            else{
+                $(this).val("null");
+            }
+        }
+    });
+</script>
+{%- endmacro %}

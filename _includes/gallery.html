@@ -1,0 +1,38 @@
+<section id="gallery-sec">
+        <div class="container ">
+            <div class="row text-center min-set">
+                <div class="col-md-12">
+                    <h2>Gallery</h2>
+                    <hr class="sub-hr" />
+                </div>
+            </div>
+            <div id="port-folio">
+                <div class="row ">
+                    <!--
+                    <ul id="filters">
+                        <li><span class="filter active" data-filter="HTML BOOTSTRAP WORDPRESS">All </span></li>
+                        <li><span class="filter">/</span></li>
+                        <li><span class="filter" data-filter="HTML">HTML</span></li>
+                        <li><span class="filter">/</span></li>
+                        <li><span class="filter" data-filter="BOOTSTRAP">BOOTSTRAP</span></li>
+                        <li><span class="filter">/</span></li>
+                        <li><span class="filter" data-filter="WORDPRESS">WORDPRESS</span></li>
+                    </ul>
+                    -->
+                    <div id="port-folio">
+                    {% for img in images %}
+                        <div class="col-md-4 col-sm-4">
+                            <div class="portfolio-item BOOTSTRAP mix_all" data-cat="BOOTSTRAP">
+                                <a class="preview" href="images/{{ img }}">
+                                    <img src="images/compress/{{ img }}" class="img-responsive " alt="" />
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>

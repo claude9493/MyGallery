@@ -1,0 +1,8 @@
+/*导入这个定义好的宏（marco）*/
+{%import 'part/_pagination.html' as pagination%}
+/*调用，所需参数：
+prefix:在页数之前的字符串部分。
+suffix：页数之后的字符串部分。
+pager：包含页面信息的字典。{"pagecount": 123,"pageindex":1} pageindex最小为1*/
+{{ pagination.paginate(prefix,suffix,pager)}}
+/*总之{{prefix}}+{{pager.pageindex}}+{{suffix}}=full URL to the webpage.*/
