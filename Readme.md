@@ -1,7 +1,7 @@
 # MyGallery
 
     基于Bootstrap, jinja2 实现的个人摄影作品展示页面.
-    A personal gallery page based on Boostrap and jinja2.
+    A personal gallery page based on Bootstrap and jinja2.
 
 ## Structure
 
