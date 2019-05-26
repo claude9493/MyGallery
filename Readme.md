@@ -35,7 +35,14 @@
 - `/images` 文件夹里的图片没有被上传到github, 直接打开`index.html` *不会显示任何图片*.
 - `/src/compress.py` 中使用 `tinify` 包需要 `key`, 默认存在 `/src/tinify-key` 文件中, 该文件没有被上传到github.
 
+## Q&A
+- 按照何种顺序放置页面中的图片?
+  - 按照图片的 `height-width` 由小到大排序, 在 `/src/img-stat.py` 中实现
+  - <blockquote>stat = dict(sorted(stat.items(), key=lambda d:d[1][1]-d[1][0], reverse = False))</blockquote>
+ 
+
 ## TO-Do
 - [ ] 分页 Pagination
 - [ ] 提高加载速度 Speed up
 - [ ] 图片上传后台系统 Photo upload system
+- [ ] 图片标签系统 Tag
