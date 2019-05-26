@@ -2,8 +2,9 @@ import os
 import os.path
 import click
 import tinify
- 
-tinify.key = "rIW2jzx7wooAZk6wIzagJ7UNv0C1o5AX"
+
+with open("./tinify-key", "r") as f:
+    tinify.key = f.readline()
 os.chdir(os.path.dirname(__file__))
 targetFileDirName = os.path.abspath("../images/compress") #输出目录
 targetIsDir = False

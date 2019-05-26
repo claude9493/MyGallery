@@ -28,6 +28,10 @@
 4. 运行`/src/img-stat.py`统计图片信息 <br>Get photos' info by `/src/img-stat.py`
 5. 运行`/src/xr.py`渲染页面 <br>Render your page by `/src/xr.py`
 
+## Note
+- `/images` 文件夹里的图片没有被上传到github, 直接打开`index.html` *不会显示任何图片*.
+- `/src/compress.py` 中使用 `tinify` 包需要 `key`, 默认存在 `/src/tinify-key` 文件中, 该文件没有被上传到github.
+
 ## TO-Do
 - [ ] 分页 Pagination
 - [ ] 提高加载速度 Speed up
